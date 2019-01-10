@@ -58,6 +58,14 @@ namespace PasswordManager {
             MessageBox.Show("Invalid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public void ReplaceElement(PasswordElement oldpe, PasswordElement newpe) {
+            if (!Elements.Contains(oldpe)) return;
+            var index = Elements.IndexOf(oldpe);
+            Elements.RemoveAt(index);
+            Elements.Insert(index, newpe);
+        }
+
+
         public void InsertElement(PasswordElement psw, bool save = true) {
             passwords.Controls.Add(psw);
             Elements.Add(psw);

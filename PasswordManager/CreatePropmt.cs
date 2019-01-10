@@ -27,6 +27,16 @@ namespace PasswordManager {
             return true;
         }
 
+        public static CreatePropmt Edit(PasswordElement psw, Action<CreatePropmt> callback) {
+            var pro = new CreatePropmt();
+            pro.NameBox.Text = psw.NameTag.Text;
+            pro.PasswordBox.Text = psw.Password;
+            pro.IconBox.Image = psw.HasIcon ? psw.icon.Image : Properties.Resources.defaulticon;
+            pro.Add.Text = "Edit password";
+            pro.Add.Click += (s, m) => callback(pro);
+            return pro;
+        }
+
         public PasswordElement Create(byte[] master) {
             return new PasswordElement(NameBox.Text, PasswordBox.Text, master, IconBox.Image);
         }
