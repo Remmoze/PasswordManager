@@ -24,8 +24,8 @@ namespace PasswordManager {
                 var json = RawData.DecryptToString(master);
                 Data = JsonConvert.DeserializeObject<Data>(json);
                 return true;
-            } catch(Exception ex) {
-                MessageBox.Show(ex.Message, ex.Source);
+            } catch(Exception) {
+                //failed to decrypt
                 return false;
             }
         }

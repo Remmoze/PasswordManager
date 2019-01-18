@@ -27,12 +27,12 @@ namespace PasswordManager {
             var prompt = new MasterPasswordPrompt();
             prompt.Submit.Click += (s, e) => {
                 if(Data.IsEmpty && string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
-                    ShowError();
+                    "Invalid password.".ShowAsError();
                     return;
                 }
                 MasterPassword = prompt.PasswordBox.Text.GetHash();
                 if (!Data.IsEmpty && !Data.TryParse(MasterPassword)) {
-                    ShowError();
+                    "Invalid password.".ShowAsError();
                     return;
                 }
 
@@ -52,10 +52,6 @@ namespace PasswordManager {
 
         public void Close(object sender, EventArgs e) {
             Environment.Exit(0);
-        }
-
-        public void ShowError() {
-            MessageBox.Show("Invalid password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void ReplaceElement(PasswordElement oldpe, PasswordElement newpe) {

@@ -11,17 +11,13 @@ namespace PasswordManager {
             InitializeComponent();
         }
 
-        private void ShowError(string text) {
-            MessageBox.Show(text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         public bool IsValid() {
             if (string.IsNullOrWhiteSpace(NameBox.Text)) {
-                ShowError("Please enter the Name.");
+                "Please enter the Name.".ShowAsError();
                 return false;
             }
             if(string.IsNullOrWhiteSpace(PasswordBox.Text)) {
-                ShowError("Please enter the Password.");
+                "Please enter the Password.".ShowAsError();
                 return false;
             }
             return true;

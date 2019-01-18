@@ -68,6 +68,7 @@
             this.SiteUrl.TabIndex = 3;
             this.SiteUrl.Text = "Load using Site Url";
             this.SiteUrl.UseVisualStyleBackColor = true;
+            this.SiteUrl.Click += new System.EventHandler(this.SiteUrl_Click);
             // 
             // Label2
             // 

@@ -47,6 +47,30 @@ namespace PasswordManager {
             }
         }
 
+        private void SiteUrl_Click(object sender, EventArgs e) {
+            var link = LinkBox.Text;
+            if(string.IsNullOrWhiteSpace(link)) {
+                "Invalid URL".ShowAsError();
+                return;
+            }
+
+            // this is terrible
+            // but works for now lol
+            try {
+                if(!link.StartsWith("http"))
+                    link = "https://" + link;
+                Preview.Load(link);
+            } catch(Exception) {
+                try {
+                    link += "/favicon.ico";
+                    Preview.Load(link);
+                } catch (Exception) {
+                    "Failed to connect.".ShowAsError();
+                    return;
+                }
+            }
+        }
+
         private void SetIcon(Image icon) {
             if(ResizeCheck.Checked) Preview.Image = new Bitmap(icon, new Size(32, 32));
             else Preview.Image = icon;
