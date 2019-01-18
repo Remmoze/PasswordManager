@@ -18,13 +18,9 @@ namespace PasswordManager {
         }
 
         public void AskForMaster() {
-            var window = new Form() {
-                Text = "Please enter Master Password.",
-                AutoSize = true,
-                AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                FormBorderStyle = FormBorderStyle.FixedSingle
-            };
             var prompt = new MasterPasswordPrompt();
+            var window = prompt.GetForm("Please enter Master Password.");
+
             prompt.Submit.Click += (s, e) => {
                 if(Data.IsEmpty && string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
                     "Invalid password.".ShowAsError();
@@ -46,7 +42,6 @@ namespace PasswordManager {
                 window.Text = "Please enter new Master Password";
             }
             window.FormClosing += Close;
-            window.Controls.Add(prompt);
             window.ShowDialog();
         }
 
@@ -86,20 +81,14 @@ namespace PasswordManager {
         }
 
         private void Create(object sender, EventArgs e) {
-            var window = new Form() {
-                Text = "Add new Password Element",
-                AutoSize = true,
-                AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                FormBorderStyle = FormBorderStyle.FixedDialog
-            };
             var prompt = new CreatePropmt();
+            var window = prompt.GetForm("Add new Password Element");
             prompt.Add.Click += (s, evt) => {
                 if (!prompt.IsValid())
                     return;
                 InsertElement(prompt.Create(MasterPassword));
                 window.Close();
             };
-            window.Controls.Add(prompt);
             window.ShowDialog();
         }
     }

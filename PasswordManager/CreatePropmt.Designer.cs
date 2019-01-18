@@ -50,24 +50,24 @@
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(324, 177);
+            this.Add.Location = new System.Drawing.Point(303, 148);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(124, 40);
+            this.Add.Size = new System.Drawing.Size(164, 38);
             this.Add.TabIndex = 0;
             this.Add.Text = "Add password";
             this.Add.UseVisualStyleBackColor = true;
             // 
             // NameBox
             // 
-            this.NameBox.Location = new System.Drawing.Point(6, 24);
+            this.NameBox.Location = new System.Drawing.Point(303, 122);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(195, 20);
+            this.NameBox.Size = new System.Drawing.Size(164, 20);
             this.NameBox.TabIndex = 1;
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(3, 8);
+            this.Label1.Location = new System.Drawing.Point(300, 106);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(38, 13);
             this.Label1.TabIndex = 2;
@@ -110,7 +110,7 @@
             this.groupBox1.Controls.Add(this.Label2);
             this.groupBox1.Controls.Add(this.ScrambleBTN);
             this.groupBox1.Controls.Add(this.PasswordBox);
-            this.groupBox1.Location = new System.Drawing.Point(6, 50);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(288, 183);
             this.groupBox1.TabIndex = 6;
@@ -193,7 +193,7 @@
             this.groupBox2.Controls.Add(this.SelectFile);
             this.groupBox2.Controls.Add(this.Label3);
             this.groupBox2.Controls.Add(this.IconBox);
-            this.groupBox2.Location = new System.Drawing.Point(300, 50);
+            this.groupBox2.Location = new System.Drawing.Point(297, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(170, 100);
             this.groupBox2.TabIndex = 7;
@@ -253,7 +253,7 @@
             this.Controls.Add(this.NameBox);
             this.Controls.Add(this.Add);
             this.Name = "CreatePropmt";
-            this.Size = new System.Drawing.Size(475, 240);
+            this.Size = new System.Drawing.Size(475, 192);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthSlider)).EndInit();

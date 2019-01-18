@@ -33,7 +33,7 @@
             // 
             this.PasswordBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasswordBox.Location = new System.Drawing.Point(3, 16);
+            this.PasswordBox.Location = new System.Drawing.Point(3, 3);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(263, 20);
             this.PasswordBox.TabIndex = 0;
@@ -42,31 +42,32 @@
             // Submit
             // 
             this.Submit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Submit.Location = new System.Drawing.Point(272, 10);
+            this.Submit.Location = new System.Drawing.Point(272, 3);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(75, 30);
+            this.Submit.Size = new System.Drawing.Size(75, 20);
             this.Submit.TabIndex = 1;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
             // 
             // Export
             // 
-            this.Export.Location = new System.Drawing.Point(3, 42);
+            this.Export.Location = new System.Drawing.Point(3, 29);
             this.Export.Name = "Export";
             this.Export.Size = new System.Drawing.Size(99, 23);
             this.Export.TabIndex = 2;
-            this.Export.Text = "Export Passports";
+            this.Export.Text = "Export Backup";
             this.Export.UseVisualStyleBackColor = true;
             this.Export.Click += new System.EventHandler(this.Export_Click);
             // 
             // Import
             // 
-            this.Import.Location = new System.Drawing.Point(108, 42);
+            this.Import.Location = new System.Drawing.Point(108, 29);
             this.Import.Name = "Import";
             this.Import.Size = new System.Drawing.Size(99, 23);
             this.Import.TabIndex = 3;
-            this.Import.Text = "Import Passports";
+            this.Import.Text = "Import Backup";
             this.Import.UseVisualStyleBackColor = true;
+            this.Import.Click += new System.EventHandler(this.Import_Click);
             // 
             // MasterPasswordPrompt
             // 
@@ -77,7 +78,7 @@
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.PasswordBox);
             this.Name = "MasterPasswordPrompt";
-            this.Size = new System.Drawing.Size(350, 71);
+            this.Size = new System.Drawing.Size(350, 55);
             this.ResumeLayout(false);
             this.PerformLayout();
 
