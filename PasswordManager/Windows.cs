@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PasswordManager {
     public static class Windows {
-        public static Form GetForm(this UserControl uc, string name = "New Window") {
+        public static Form GetForm(this UserControl uc, string name = "New Window", bool show = false) {
             var window = new Form() {
                 Text = name,
                 AutoSize = true,
@@ -15,7 +15,12 @@ namespace PasswordManager {
                 FormBorderStyle = FormBorderStyle.FixedDialog
             };
             window.Controls.Add(uc);
+            if(show) window.ShowDialog();
             return window;
+        }
+
+        public static void ShowAsError(this string ErrorMessage) {
+            MessageBox.Show(ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

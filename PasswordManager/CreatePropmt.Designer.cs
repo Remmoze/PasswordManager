@@ -208,6 +208,7 @@
             this.LoadURL.TabIndex = 3;
             this.LoadURL.Text = "Load with url";
             this.LoadURL.UseVisualStyleBackColor = true;
+            this.LoadURL.Click += new System.EventHandler(this.LoadURL_Click);
             // 
             // SelectFile
             // 
@@ -234,6 +235,7 @@
             this.IconBox.Location = new System.Drawing.Point(9, 32);
             this.IconBox.Name = "IconBox";
             this.IconBox.Size = new System.Drawing.Size(32, 32);
+            this.IconBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.IconBox.TabIndex = 0;
             this.IconBox.TabStop = false;
             // 

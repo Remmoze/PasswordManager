@@ -80,5 +80,16 @@ namespace PasswordManager {
                 IconBox.Image = new Bitmap(new Bitmap(FilePath.FileName), new Size(32, 32));
             }
         }
+
+        private void LoadURL_Click(object sender, EventArgs e) {
+            var loader = new IconLoader(SetIcon);
+            var form = loader.GetForm("Select the icon");
+            loader.Submit.Click += (s, ev) => form.Close();
+            form.ShowDialog();
+        }
+
+        private void SetIcon(Image icon) {
+            IconBox.Image = icon;
+        }
     }
 }

@@ -75,6 +75,7 @@
             this.icon.Location = new System.Drawing.Point(3, 3);
             this.icon.Name = "icon";
             this.icon.Size = new System.Drawing.Size(32, 32);
+            this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
             // 
