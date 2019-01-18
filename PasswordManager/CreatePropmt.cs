@@ -73,7 +73,7 @@ namespace PasswordManager {
         private void SelectFile_Click(object sender, EventArgs e) {
             FilePath.Filter = "Png Files|*.png;";
             if (FilePath.ShowDialog() == DialogResult.OK) {
-                IconBox.Image = new Bitmap(new Bitmap(FilePath.FileName), new Size(32, 32));
+                SetIcon(new Bitmap(new Bitmap(FilePath.FileName), new Size(32, 32)));
             }
         }
 
@@ -86,6 +86,10 @@ namespace PasswordManager {
 
         private void SetIcon(Image icon) {
             IconBox.Image = icon;
+        }
+
+        private void Reset_Click(object sender, EventArgs e) {
+            SetIcon(Properties.Resources.defaulticon);
         }
     }
 }

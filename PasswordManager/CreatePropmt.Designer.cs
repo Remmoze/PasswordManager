@@ -42,6 +42,7 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.IconBox = new System.Windows.Forms.PictureBox();
             this.FilePath = new System.Windows.Forms.OpenFileDialog();
+            this.Reset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthSlider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -189,6 +190,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Reset);
             this.groupBox2.Controls.Add(this.LoadURL);
             this.groupBox2.Controls.Add(this.SelectFile);
             this.groupBox2.Controls.Add(this.Label3);
@@ -243,6 +245,16 @@
             // 
             this.FilePath.FileName = "openFileDialog1";
             // 
+            // Reset
+            // 
+            this.Reset.Location = new System.Drawing.Point(89, 42);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(75, 23);
+            this.Reset.TabIndex = 4;
+            this.Reset.Text = "Reset Icon";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
+            // 
             // CreatePropmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +298,6 @@
         private System.Windows.Forms.Label Label3;
         private System.Windows.Forms.PictureBox IconBox;
         private System.Windows.Forms.OpenFileDialog FilePath;
+        private System.Windows.Forms.Button Reset;
     }
 }

@@ -23,7 +23,7 @@ namespace PasswordManager {
             var link = LinkBox.Text;
             if (string.IsNullOrWhiteSpace(link))
                 return "";
-            return "https://www.google.com/s2/favicons?domain=" + link;
+            return "https://www.google.com/s2/favicons?domain=" + link; //3rd party is eww
         }
 
         private void ImageLink_Click(object sender, EventArgs e) {
