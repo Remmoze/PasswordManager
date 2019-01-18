@@ -9,6 +9,7 @@ namespace PasswordManager {
         public CreatePropmt() {
             random = new Random();
             InitializeComponent();
+            ScrambleBTN.PerformClick();
         }
 
         public bool IsValid() {

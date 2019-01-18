@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatePropmt));
             this.Add = new System.Windows.Forms.Button();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -37,12 +38,12 @@
             this.LengthDisplay = new System.Windows.Forms.Label();
             this.LengthSlider = new System.Windows.Forms.TrackBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Reset = new System.Windows.Forms.Button();
             this.LoadURL = new System.Windows.Forms.Button();
             this.SelectFile = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.IconBox = new System.Windows.Forms.PictureBox();
             this.FilePath = new System.Windows.Forms.OpenFileDialog();
-            this.Reset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthSlider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -175,7 +176,7 @@
             this.LengthDisplay.Name = "LengthDisplay";
             this.LengthDisplay.Size = new System.Drawing.Size(64, 13);
             this.LengthDisplay.TabIndex = 7;
-            this.LengthDisplay.Text = "Length (16):";
+            this.LengthDisplay.Text = "Length (25):";
             // 
             // LengthSlider
             // 
@@ -185,7 +186,7 @@
             this.LengthSlider.Name = "LengthSlider";
             this.LengthSlider.Size = new System.Drawing.Size(273, 45);
             this.LengthSlider.TabIndex = 6;
-            this.LengthSlider.Value = 16;
+            this.LengthSlider.Value = 25;
             this.LengthSlider.Scroll += new System.EventHandler(this.Scrolled);
             // 
             // groupBox2
@@ -201,6 +202,16 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Icon Settings";
+            // 
+            // Reset
+            // 
+            this.Reset.Location = new System.Drawing.Point(89, 42);
+            this.Reset.Name = "Reset";
+            this.Reset.Size = new System.Drawing.Size(75, 23);
+            this.Reset.TabIndex = 4;
+            this.Reset.Text = "Reset Icon";
+            this.Reset.UseVisualStyleBackColor = true;
+            this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // LoadURL
             // 
@@ -233,7 +244,7 @@
             // 
             // IconBox
             // 
-            this.IconBox.Image = global::PasswordManager.Properties.Resources.defaulticon;
+            this.IconBox.Image = ((System.Drawing.Image)(resources.GetObject("IconBox.Image")));
             this.IconBox.Location = new System.Drawing.Point(9, 32);
             this.IconBox.Name = "IconBox";
             this.IconBox.Size = new System.Drawing.Size(32, 32);
@@ -244,16 +255,6 @@
             // FilePath
             // 
             this.FilePath.FileName = "openFileDialog1";
-            // 
-            // Reset
-            // 
-            this.Reset.Location = new System.Drawing.Point(89, 42);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(75, 23);
-            this.Reset.TabIndex = 4;
-            this.Reset.Text = "Reset Icon";
-            this.Reset.UseVisualStyleBackColor = true;
-            this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // CreatePropmt
             // 

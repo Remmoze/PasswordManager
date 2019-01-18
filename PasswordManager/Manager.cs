@@ -11,7 +11,7 @@ namespace PasswordManager {
 
         public PasswordManager() {
 
-            Data = new SaveData("data");
+            Data = new SaveData("data.encrypted");
             
             InitializeComponent();
             AskForMaster();
