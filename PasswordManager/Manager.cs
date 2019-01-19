@@ -61,9 +61,11 @@ namespace PasswordManager {
             passwords.Controls.Add(psw);
             Elements.Add(psw);
             psw.Delete.Click += (s, m) => {
-                passwords.Controls.Remove(psw);
-                Elements.Remove(psw);
-                Save();
+                if(Windows.Ask("Are you sure you want to delete this password?", "Delete Password") == DialogResult.Yes) {
+                    passwords.Controls.Remove(psw);
+                    Elements.Remove(psw);
+                    Save();
+                }
             };
             if (save) Save();
         }
