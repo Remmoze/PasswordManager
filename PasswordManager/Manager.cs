@@ -11,22 +11,23 @@ namespace PasswordManager {
 
         public PasswordManager() {
 
-            Data = new SaveData("data.encrypted");
-            
+            Data = new SaveData();
             InitializeComponent();
+            SaveBackup.Filter = "Backup files|*.backup";
             AskForMaster();
         }
 
         public void AskForMaster() {
-            var prompt = new MasterPasswordPrompt();
+            var prompt = new MasterPasswordPrompt(Data, SaveBackup);
             var window = prompt.GetForm("Please enter Master Password.");
 
             prompt.Submit.Click += (s, e) => {
-                if(Data.IsEmpty && string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
+                if(string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
                     "Invalid password.".ShowAsError();
-                    prompt.PasswordBox.SelectAll();
+                    prompt.PasswordBox.Focus();
                     return;
                 }
+
                 MasterPassword = prompt.PasswordBox.Text.GetHash();
                 if (!Data.IsEmpty && !Data.TryParse(MasterPassword)) {
                     "Invalid password.".ShowAsError();
@@ -37,12 +38,14 @@ namespace PasswordManager {
                 window.FormClosing -= Close;
                 window.Close();
                 if(!Data.IsEmpty) LoadPasswords();
+                if(!Data.Exists) Data.Save();
             };
 
-            if (Data.IsEmpty) {
-                MessageBox.Show("Master Password hasn't been found!\nYou have to set a new one.", "Master Password is not found.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                window.Text = "Please enter new Master Password";
+            if(!Data.Exists) {
+                MessageBox.Show("SaveFile hasn't been found. Either create a new file or import a backup.", "SaveFile is not found.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                prompt.CreateNew();
             }
+
             window.FormClosing += Close;
             window.ShowDialog();
         }
@@ -98,6 +101,13 @@ namespace PasswordManager {
 
         private void SecretLegs_Click(object sender, EventArgs e) {
             PasswordsGrid.BackgroundImage = PasswordsGrid.BackgroundImage == null ? Properties.Resources.legs : null;
+        }
+
+        private void ExportBackup_Click(object sender, EventArgs e) {
+            if(SaveBackup.ShowDialog() == DialogResult.OK) {
+                Data.Save(SaveBackup.FileName);
+                MessageBox.Show("Backup has been successfully created!", "Backup saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

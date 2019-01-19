@@ -6,13 +6,14 @@ using System.Windows.Forms;
 
 namespace PasswordManager {
     public class SaveData {
-        public string Path;
+        public string Path = "data.encrypted";
         public bool IsEmpty { get => RawData.Length == 0; }
+        public bool Exists { get; } = false;
 
         private byte[] RawData;
         private Data Data = new Data();
-        public SaveData(string path) {
-            Path = path;
+        public SaveData(string path = "data.encrypted") {
+            Exists = File.Exists(path);
             RawData = File.Exists(path) ? File.ReadAllBytes(path) : new byte[0];
             Data = new Data();
             Data.Elements = new List<Data.Item>();
@@ -35,9 +36,18 @@ namespace PasswordManager {
             RawData = json.EncryptBytes(master);
         }
 
-        public void Save() {
-            if (IsEmpty) return;
+        public void Reset() {
+            RawData = new byte[0];
+            Data = new Data();
+            ForceSave();
+        }
+
+        private void ForceSave() {
             File.WriteAllBytes(Path, RawData);
+        }
+        public void Save(string newPath = "") {
+            if (IsEmpty && Exists) return; //Create a new file even if it's empty.
+            File.WriteAllBytes(newPath==""?Path:newPath, RawData);
         }
 
         public PasswordElement[] GetElements(byte[] master) {

@@ -25,11 +25,15 @@
         private void InitializeComponent() {
             this.PasswordsGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.NewPasswordBTN = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.exportABackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Settings = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExportBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.SecretLegs = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.Options = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveBackup = new System.Windows.Forms.SaveFileDialog();
+            this.Search = new System.Windows.Forms.TextBox();
+            this.RemoveSearch = new System.Windows.Forms.Button();
+            this.Options.SuspendLayout();
             this.SuspendLayout();
             // 
             // PasswordsGrid
@@ -40,9 +44,9 @@
             this.PasswordsGrid.AutoScroll = true;
             this.PasswordsGrid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PasswordsGrid.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.PasswordsGrid.Location = new System.Drawing.Point(0, 27);
+            this.PasswordsGrid.Location = new System.Drawing.Point(0, 48);
             this.PasswordsGrid.Name = "PasswordsGrid";
-            this.PasswordsGrid.Size = new System.Drawing.Size(272, 422);
+            this.PasswordsGrid.Size = new System.Drawing.Size(272, 401);
             this.PasswordsGrid.TabIndex = 3;
             this.PasswordsGrid.WrapContents = false;
             // 
@@ -53,31 +57,21 @@
             this.NewPasswordBTN.Text = "New Password";
             this.NewPasswordBTN.Click += new System.EventHandler(this.Create);
             // 
-            // settingsToolStripMenuItem
+            // Settings
             // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportABackupToolStripMenuItem,
+            this.Settings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExportBackup,
             this.SecretLegs});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(61, 20);
+            this.Settings.Text = "Settings";
             // 
-            // menuStrip1
+            // ExportBackup
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewPasswordBTN,
-            this.settingsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(272, 24);
-            this.menuStrip1.TabIndex = 9;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // exportABackupToolStripMenuItem
-            // 
-            this.exportABackupToolStripMenuItem.Name = "exportABackupToolStripMenuItem";
-            this.exportABackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportABackupToolStripMenuItem.Text = "Export a backup";
+            this.ExportBackup.Name = "ExportBackup";
+            this.ExportBackup.Size = new System.Drawing.Size(180, 22);
+            this.ExportBackup.Text = "Export a backup";
+            this.ExportBackup.Click += new System.EventHandler(this.ExportBackup_Click);
             // 
             // SecretLegs
             // 
@@ -86,18 +80,53 @@
             this.SecretLegs.Text = "?";
             this.SecretLegs.Click += new System.EventHandler(this.SecretLegs_Click);
             // 
+            // Options
+            // 
+            this.Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewPasswordBTN,
+            this.Settings,
+            this.toolStripMenuItem1});
+            this.Options.Location = new System.Drawing.Point(0, 0);
+            this.Options.Name = "Options";
+            this.Options.Size = new System.Drawing.Size(272, 24);
+            this.Options.TabIndex = 9;
+            this.Options.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            // 
+            // Search
+            // 
+            this.Search.Location = new System.Drawing.Point(12, 27);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(219, 20);
+            this.Search.TabIndex = 10;
+            // 
+            // RemoveSearch
+            // 
+            this.RemoveSearch.Image = global::PasswordManager.Properties.Resources.deleteicon;
+            this.RemoveSearch.Location = new System.Drawing.Point(237, 25);
+            this.RemoveSearch.Name = "RemoveSearch";
+            this.RemoveSearch.Size = new System.Drawing.Size(23, 23);
+            this.RemoveSearch.TabIndex = 11;
+            this.RemoveSearch.UseVisualStyleBackColor = true;
+            // 
             // PasswordManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 461);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.RemoveSearch);
+            this.Controls.Add(this.Search);
+            this.Controls.Add(this.Options);
             this.Controls.Add(this.PasswordsGrid);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.Options;
             this.Name = "PasswordManager";
             this.Text = "Password Manager";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Options.ResumeLayout(false);
+            this.Options.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,10 +135,14 @@
         #endregion
         private System.Windows.Forms.FlowLayoutPanel PasswordsGrid;
         private System.Windows.Forms.ToolStripMenuItem NewPasswordBTN;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem exportABackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Settings;
+        private System.Windows.Forms.ToolStripMenuItem ExportBackup;
         private System.Windows.Forms.ToolStripMenuItem SecretLegs;
+        private System.Windows.Forms.MenuStrip Options;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.SaveFileDialog SaveBackup;
+        private System.Windows.Forms.TextBox Search;
+        public System.Windows.Forms.Button RemoveSearch;
     }
 }
 
