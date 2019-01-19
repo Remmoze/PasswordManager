@@ -22,6 +22,7 @@ namespace PasswordManager {
             HasIcon = iconImage != null;
             icon.Image = iconImage ?? Properties.Resources.defaulticon;
             NameTag.Text = name;
+            BackColor = Color.Transparent;
         }
 
         private void Edit(CreatePropmt cp) {

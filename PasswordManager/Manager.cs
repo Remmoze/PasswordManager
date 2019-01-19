@@ -24,11 +24,13 @@ namespace PasswordManager {
             prompt.Submit.Click += (s, e) => {
                 if(Data.IsEmpty && string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
                     "Invalid password.".ShowAsError();
+                    prompt.PasswordBox.SelectAll();
                     return;
                 }
                 MasterPassword = prompt.PasswordBox.Text.GetHash();
                 if (!Data.IsEmpty && !Data.TryParse(MasterPassword)) {
                     "Invalid password.".ShowAsError();
+                    prompt.PasswordBox.SelectAll();
                     return;
                 }
 
@@ -58,11 +60,11 @@ namespace PasswordManager {
 
 
         public void InsertElement(PasswordElement psw, bool save = true) {
-            passwords.Controls.Add(psw);
+            PasswordsGrid.Controls.Add(psw);
             Elements.Add(psw);
             psw.Delete.Click += (s, m) => {
                 if(Windows.Ask("Are you sure you want to delete this password?", "Delete Password") == DialogResult.Yes) {
-                    passwords.Controls.Remove(psw);
+                    PasswordsGrid.Controls.Remove(psw);
                     Elements.Remove(psw);
                     Save();
                 }
@@ -92,6 +94,10 @@ namespace PasswordManager {
                 window.Close();
             };
             window.ShowDialog();
+        }
+
+        private void SecretLegs_Click(object sender, EventArgs e) {
+            PasswordsGrid.BackgroundImage = PasswordsGrid.BackgroundImage == null ? Properties.Resources.legs : null;
         }
     }
 }
