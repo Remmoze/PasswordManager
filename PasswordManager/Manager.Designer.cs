@@ -32,7 +32,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveBackup = new System.Windows.Forms.SaveFileDialog();
             this.Search = new System.Windows.Forms.TextBox();
-            this.RemoveSearch = new System.Windows.Forms.Button();
             this.Options.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,9 +43,9 @@
             this.PasswordsGrid.AutoScroll = true;
             this.PasswordsGrid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PasswordsGrid.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.PasswordsGrid.Location = new System.Drawing.Point(0, 48);
+            this.PasswordsGrid.Location = new System.Drawing.Point(0, 43);
             this.PasswordsGrid.Name = "PasswordsGrid";
-            this.PasswordsGrid.Size = new System.Drawing.Size(272, 401);
+            this.PasswordsGrid.Size = new System.Drawing.Size(272, 406);
             this.PasswordsGrid.TabIndex = 3;
             this.PasswordsGrid.WrapContents = false;
             // 
@@ -69,14 +68,14 @@
             // ExportBackup
             // 
             this.ExportBackup.Name = "ExportBackup";
-            this.ExportBackup.Size = new System.Drawing.Size(180, 22);
+            this.ExportBackup.Size = new System.Drawing.Size(158, 22);
             this.ExportBackup.Text = "Export a backup";
             this.ExportBackup.Click += new System.EventHandler(this.ExportBackup_Click);
             // 
             // SecretLegs
             // 
             this.SecretLegs.Name = "SecretLegs";
-            this.SecretLegs.Size = new System.Drawing.Size(180, 22);
+            this.SecretLegs.Size = new System.Drawing.Size(158, 22);
             this.SecretLegs.Text = "?";
             this.SecretLegs.Click += new System.EventHandler(this.SecretLegs_Click);
             // 
@@ -99,26 +98,18 @@
             // 
             // Search
             // 
-            this.Search.Location = new System.Drawing.Point(12, 27);
+            this.Search.Location = new System.Drawing.Point(0, 25);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(219, 20);
+            this.Search.Size = new System.Drawing.Size(272, 20);
             this.Search.TabIndex = 10;
-            // 
-            // RemoveSearch
-            // 
-            this.RemoveSearch.Image = global::PasswordManager.Properties.Resources.deleteicon;
-            this.RemoveSearch.Location = new System.Drawing.Point(237, 25);
-            this.RemoveSearch.Name = "RemoveSearch";
-            this.RemoveSearch.Size = new System.Drawing.Size(23, 23);
-            this.RemoveSearch.TabIndex = 11;
-            this.RemoveSearch.UseVisualStyleBackColor = true;
+            this.Search.Text = "Search..";
+            this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
             // PasswordManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 461);
-            this.Controls.Add(this.RemoveSearch);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.PasswordsGrid);
@@ -142,7 +133,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.SaveFileDialog SaveBackup;
         private System.Windows.Forms.TextBox Search;
-        public System.Windows.Forms.Button RemoveSearch;
     }
 }
 

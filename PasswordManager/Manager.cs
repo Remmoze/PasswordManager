@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PasswordManager {
     public partial class PasswordManager : Form {
@@ -14,6 +15,18 @@ namespace PasswordManager {
             InitializeComponent();
             SaveBackup.Filter = "Backup files|*.backup";
             AskForMaster();
+
+            Search.GotFocus += (s, e) => {
+                if(Search.Text == "Search..")
+                    Search.Text = "";
+                Search.ForeColor = System.Drawing.Color.Black;
+            };
+
+            Search.LostFocus += (s, e) => {
+                if(string.IsNullOrWhiteSpace(Search.Text))
+                    Search.Text = "Search..";
+                Search.ForeColor = System.Drawing.Color.Gray;
+            };
         }
 
         public void AskForMaster() {
@@ -106,6 +119,19 @@ namespace PasswordManager {
             if(SaveBackup.ShowDialog() == DialogResult.OK) {
                 Data.Save(SaveBackup.FileName);
                 MessageBox.Show("Backup has been successfully created!", "Backup saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void Search_TextChanged(object sender, EventArgs e) {
+            if(Search.Text == "Search.." || string.IsNullOrWhiteSpace(Search.Text)) {
+                foreach(var control in PasswordsGrid.Controls) {
+                    ((PasswordElement)control).Visible = true;
+                }
+            } else {
+                foreach(var control in PasswordsGrid.Controls) {
+                    var element = (PasswordElement)control;
+                    element.Visible = element.NameTag.Text.Contains(Search.Text);
+                }
             }
         }
     }
