@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordManager));
             this.PasswordsGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.NewPasswordBTN = new System.Windows.Forms.ToolStripMenuItem();
             this.Settings = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,6 +114,7 @@
             this.Controls.Add(this.Search);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.PasswordsGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Options;
             this.Name = "PasswordManager";
             this.Text = "Password Manager";

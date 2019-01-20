@@ -12,7 +12,9 @@ namespace PasswordManager {
                 Text = name,
                 AutoSize = true,
                 AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                FormBorderStyle = FormBorderStyle.FixedDialog
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                Icon = Properties.Resources.icon
             };
             window.Controls.Add(uc);
             if(show) window.ShowDialog();

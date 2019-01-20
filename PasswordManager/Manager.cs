@@ -116,6 +116,10 @@ namespace PasswordManager {
         }
 
         private void ExportBackup_Click(object sender, EventArgs e) {
+            if(Data.IsEmpty) {
+                "Nothing to save.".ShowAsError("Create passwords first!");
+                return;
+            }
             if(SaveBackup.ShowDialog() == DialogResult.OK) {
                 Data.Save(SaveBackup.FileName);
                 MessageBox.Show("Backup has been successfully created!", "Backup saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);

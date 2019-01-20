@@ -51,7 +51,7 @@ namespace PasswordManager {
             File.WriteAllBytes(Path, RawData);
         }
         public void Save(string newPath = "") {
-            if (IsEmpty && Exists) return; //Create a new file even if it's empty.
+            //if (IsEmpty && Exists) return; //Create a new file even if it's empty.
             File.WriteAllBytes(newPath==""?Path:newPath, RawData);
         }
 
