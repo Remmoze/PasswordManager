@@ -32,6 +32,10 @@ namespace PasswordManager {
         }
 
         public void Encode(byte[] master) {
+            if(Data.Elements == null || Data.Elements.Count == 0) {
+                RawData = new byte[0];
+                return;
+            }
             var json = JsonConvert.SerializeObject(Data);
             RawData = json.EncryptBytes(master);
         }
@@ -39,6 +43,7 @@ namespace PasswordManager {
         public void Reset() {
             RawData = new byte[0];
             Data = new Data();
+            Data.Elements = new List<Data.Item>();
             ForceSave();
         }
 

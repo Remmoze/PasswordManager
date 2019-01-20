@@ -10,7 +10,6 @@ namespace PasswordManager {
         public SaveData Data;
 
         public PasswordManager() {
-
             Data = new SaveData();
             InitializeComponent();
             SaveBackup.Filter = "Backup files|*.backup";
@@ -23,14 +22,14 @@ namespace PasswordManager {
 
             prompt.Submit.Click += (s, e) => {
                 if(string.IsNullOrEmpty(prompt.PasswordBox.Text)) {
-                    "Invalid password.".ShowAsError();
+                    "Password can not be empty".ShowAsError("Invalid password.");
                     prompt.PasswordBox.Focus();
                     return;
                 }
 
                 MasterPassword = prompt.PasswordBox.Text.GetHash();
                 if (!Data.IsEmpty && !Data.TryParse(MasterPassword)) {
-                    "Invalid password.".ShowAsError();
+                    "Failed to decrypt the file".ShowAsError("Invalid password.");
                     prompt.PasswordBox.SelectAll();
                     return;
                 }

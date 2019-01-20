@@ -19,8 +19,8 @@ namespace PasswordManager {
             return window;
         }
 
-        public static void ShowAsError(this string ErrorMessage) {
-            MessageBox.Show(ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        public static void ShowAsError(this string ErrorMessage, string ErrorTitle = "Error") {
+            MessageBox.Show(ErrorMessage, ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static DialogResult Ask(string question, string title, bool includeCancel = false) {
