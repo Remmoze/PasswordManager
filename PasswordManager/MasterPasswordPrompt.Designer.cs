@@ -29,6 +29,7 @@
             this.Import = new System.Windows.Forms.Button();
             this.OpenBackup = new System.Windows.Forms.OpenFileDialog();
             this.Create = new System.Windows.Forms.Button();
+            this.ShowPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PasswordBox
@@ -37,7 +38,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordBox.Location = new System.Drawing.Point(3, 3);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(263, 20);
+            this.PasswordBox.PasswordChar = '*';
+            this.PasswordBox.Size = new System.Drawing.Size(244, 20);
             this.PasswordBox.TabIndex = 0;
             this.PasswordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordBox_KeyDown);
             // 
@@ -85,15 +87,27 @@
             this.Create.UseVisualStyleBackColor = true;
             this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
+            // ShowPass
+            // 
+            this.ShowPass.BackgroundImage = global::PasswordManager.Properties.Resources.eye;
+            this.ShowPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShowPass.Location = new System.Drawing.Point(246, 3);
+            this.ShowPass.Name = "ShowPass";
+            this.ShowPass.Size = new System.Drawing.Size(20, 20);
+            this.ShowPass.TabIndex = 5;
+            this.ShowPass.UseVisualStyleBackColor = true;
+            this.ShowPass.Click += new System.EventHandler(this.ShowPass_Click);
+            // 
             // MasterPasswordPrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PasswordBox);
+            this.Controls.Add(this.ShowPass);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.Import);
             this.Controls.Add(this.Export);
             this.Controls.Add(this.Submit);
-            this.Controls.Add(this.PasswordBox);
             this.Name = "MasterPasswordPrompt";
             this.Size = new System.Drawing.Size(350, 55);
             this.ResumeLayout(false);
@@ -108,5 +122,6 @@
         private System.Windows.Forms.Button Import;
         private System.Windows.Forms.OpenFileDialog OpenBackup;
         private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.Button ShowPass;
     }
 }

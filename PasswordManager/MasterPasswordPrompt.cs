@@ -74,5 +74,9 @@ namespace PasswordManager {
             Export.Visible = false;
             Data.Reset();
         }
+
+        private void ShowPass_Click(object sender, EventArgs e) {
+            PasswordBox.PasswordChar = PasswordBox.PasswordChar == '*' ? char.MinValue : '*';
+        }
     }
 }
